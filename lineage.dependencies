@@ -1,0 +1,6 @@
+[
+    {
+        "repository": "android_device_samsung_universal2100-common",
+        "target_path": "device/samsung/universal2100-common"
+    }
+]
