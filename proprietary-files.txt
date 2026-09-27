@@ -52,6 +52,7 @@ vendor/firmware/sb_music.bin
 vendor/firmware/sb_others.bin
 vendor/firmware/txse1.bin
 vendor/firmware/txse2.bin
+vendor/firmware/txse4.bin
 vendor/firmware/vts.bin
 
 # Bluetooth firmware
