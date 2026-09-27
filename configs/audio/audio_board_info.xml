@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+
+     Built-in microphone characteristics, read by libaudioproxy2
+     (proxy_set_board_info) from vendor/etc/audio_board_info.xml and
+     reported through IDevice::getMicrophones().
+
+     The parser is positional: every attribute below must be present, in
+     exactly this order, or the audio HAL may crash while parsing.
+     Only AUDIO_DEVICE_IN_BUILTIN_MIC and AUDIO_DEVICE_IN_BACK_MIC are
+     accepted as device types. The first entry is reported for the main
+     mic, the second for the sub mic, both for dual-mic capture.
+
+     Samsung does not publish the S21 microphone data, so sensitivity,
+     SPL, frequency response and geometry are reported as UNKNOWN
+     (-FLT_MAX / 0,0,0 per audio_microphone_characteristic_t) instead of
+     made-up numbers.
+-->
+<audio_board_info>
+    <microphone_characteristics>
+        <microphone device_id="builtin_mic_main"
+                    id="0"
+                    device="AUDIO_DEVICE_IN_BUILTIN_MIC"
+                    address="bottom"
+                    location="AUDIO_MICROPHONE_LOCATION_MAINBODY"
+                    group="0"
+                    index_in_the_group="0"
+                    sensitivity="-3.40282347e+38"
+                    max_spl="-3.40282347e+38"
+                    min_spl="-3.40282347e+38"
+                    directionality="AUDIO_MICROPHONE_DIRECTIONALITY_UNKNOWN"
+                    num_frequency_responses="0"
+                    geometric_location="-3.40282347e+38 -3.40282347e+38 -3.40282347e+38"
+                    orientation="0.0 0.0 0.0"
+        />
+        <microphone device_id="builtin_mic_sub"
+                    id="1"
+                    device="AUDIO_DEVICE_IN_BACK_MIC"
+                    address="back"
+                    location="AUDIO_MICROPHONE_LOCATION_MAINBODY"
+                    group="0"
+                    index_in_the_group="1"
+                    sensitivity="-3.40282347e+38"
+                    max_spl="-3.40282347e+38"
+                    min_spl="-3.40282347e+38"
+                    directionality="AUDIO_MICROPHONE_DIRECTIONALITY_UNKNOWN"
+                    num_frequency_responses="0"
+                    geometric_location="-3.40282347e+38 -3.40282347e+38 -3.40282347e+38"
+                    orientation="0.0 0.0 0.0"
+        />
+    </microphone_characteristics>
+</audio_board_info>
