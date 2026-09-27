@@ -23,6 +23,18 @@ $(call soong_config_set,samsungCameraVars,extra_ids,52)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/display/displayconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_4633128672291735937.xml
 
+# eSIM - the G991B eUICC shares the SIM2 slot with the second nano-SIM
+# (SEC_FLOATING_FEATURE_COMMON_CONFIG_EMBEDDED_SIM_SLOTSWITCH=tsds2).
+# OpenEUICC is the privileged LPA (EuiccService); stock declares the same
+# feature for its com.samsung.euicc LPA. Only enabled when OpenEUICC is
+# synced (volte.xml), because the feature without an LPA breaks the
+# Settings/SetupWizard eSIM flows.
+ifneq ($(wildcard packages/apps/OpenEUICC/Android.bp),)
+PRODUCT_PACKAGES += \
+    android.hardware.telephony.euicc.prebuilt.xml \
+    OpenEUICC
+endif
+
 # Recovery/vendor_boot firmware
 PRODUCT_COPY_FILES += \
     vendor/samsung/o1s/proprietary/vendor/firmware/y792_o1.bin:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/firmware/y792_o1.bin \
